@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prospera Rio - Relatório de Impacto Parcial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #EFF1F3;
+            color: #021738;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #092040 0%, #021738 100%);
+            color: #FFFFFF;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            max-width: 280px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        
+        .location-text {
+            color: #ECC203;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            margin-top: 20px;
+        }
+        
+        .subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+        
+        .summary-section {
+            background: #FFFFFF;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-left: 5px solid #00B7D7;
+        }
+        
+        .summary-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #092040;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #00B7D7, #092040);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            color: #FFFFFF;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .metric-card .number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #ECC203;
+            margin-bottom: 8px;
+        }
+        
+        .metric-card .label {
+            font-size: 14px;
+            line-height: 1.4;
+            opacity: 0.95;
+        }
+        
+        .stage-block {
+            background: #FFFFFF;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stage-header {
+            background: #092040;
+            color: #FFFFFF;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .stage-number {
+            background: #00B7D7;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .stage-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            flex: 1;
+        }
+        
+        .status-badge {
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-concluida {
+            background: #4CAF50;
+            color: #FFFFFF;
+        }
+        
+        .status-andamento {
+            background: #ECC203;
+            color: #021738;
+        }
+        
+        .stage-content {
+            padding: 30px;
+        }
+        
+        .content-block {
+            margin-bottom: 25px;
+        }
+        
+        .content-block h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #092040;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 2px solid #00B7D7;
+            padding-bottom: 8px;
+        }
+        
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .info-table th {
+            background: #EFF1F3;
+            color: #092040;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 13px;
+            border-bottom: 2px solid #00B7D7;
+        }
+        
+        .info-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #EFF1F3;
+            font-size: 13px;
+        }
+        
+        .info-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .meta-column {
+            color: #092040;
+            font-weight: 600;
+        }
+        
+        .realizado-column {
+            color: #00B7D7;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .percent-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+        
+        .percent-green {
+            background: #4CAF50;
+            color: #FFFFFF;
+        }
+        
+        .percent-yellow {
+            background: #ECC203;
+            color: #021738;
+        }
+        
+        .percent-red {
+            background: #f44336;
+            color: #FFFFFF;
+        }
+        
+        .territorio-box {
+            background: #f8f9fa;
+            border: 2px solid #EFF1F3;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .territorio-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #092040;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #00B7D7;
+        }
+        
+        .alert-box {
+            background: #fff3cd;
+            border-left: 4px solid #ECC203;
+            padding: 18px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .alert-box.danger {
+            background: #f8d7da;
+            border-left-color: #f44336;
+        }
+        
+        .alert-box.success {
+            background: #d4edda;
+            border-left-color: #4CAF50;
+        }
+        
+        .alert-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .list-items {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .list-items li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .list-items li:before {
+            content: "▪";
+            color: #00B7D7;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, #00B7D7, #092040);
+            margin: 30px 0;
+            border-radius: 2px;
+        }
+        
+        .final-summary {
+            background: linear-gradient(135deg, #092040, #00B7D7);
+            color: #FFFFFF;
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .final-summary h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ECC203;
+            font-weight: 700;
+        }
+        
+        .highlight-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #ECC203;
+        }
+        
+        .highlight-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #ECC203;
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .event-table {
+            width: 100%;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        
+        .event-table th,
+        .event-table td {
+            padding: 10px 12px;
+            text-align: left;
+        }
+        
+        .event-table th {
+            background: #EFF1F3;
+            font-weight: 600;
+        }
+
+        .investment-box {
+            background: #f0f8ff;
+            border: 2px solid #00B7D7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .investment-box h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: #092040;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .value-highlight {
+            font-size: 24px;
+            color: #00B7D7;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .stage-block {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- CABECALHO -->
+        <div class="header">
+            <div class="logo-container">
+                <img src="https://lh3.googleusercontent.com/d/1x5sNkC9vd7CI78y0xdkWvgoadxPEMcIf=w800" alt="Prospera Rio" class="logo">
+                <div class="location-text">MARE - JACAREZINHO</div>
+            </div>
+            <h1>RELATORIO DE IMPACTO FINAL</h1>
+            <p class="subtitle">Analise Consolidada de Metas, Resultados e Impactos Socioeconomicos | Outubro 2025</p>
+            <p class="subtitle" style="margin-top: 5px; font-size: 14px;">Documento Oficial ao SEBRAE/RJ</p>
+        </div>
+
+        <!-- RESUMO EXECUTIVO GERAL -->
+        <div class="summary-section">
+            <h2>RESUMO EXECUTIVO DO PROJETO</h2>
+            <p style="margin-bottom: 15px; font-size: 15px;"><strong>Objetivo:</strong> Inclusao produtiva e geracao de renda para pessoas negras, mulheres e familias de pessoas com deficiencia nos territorios da Mare e Jacarezinho.</p>
+            <p style="margin-bottom: 15px; font-size: 15px;"><strong>Prazo de Vigencia:</strong> 18 meses a contar da assinatura</p>
+            <p style="margin-bottom: 20px; font-size: 15px;"><strong>Status em Outubro/2025:</strong> Projeto em execucao com 1 etapa concluida e 4 etapas em andamento</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="number">1.046</div>
+                    <div class="label">Empreendimentos Mapeados<br>(Meta: 1.000 | 104,6%)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">174</div>
+                    <div class="label">Diagnosticos Empresariais<br>(Meta: 100 | 174%)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">639</div>
+                    <div class="label">Participantes Seminarios Amplos<br>(Meta: 1.000 | 63,9%)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">32</div>
+                    <div class="label">Oficinas Tecnicas<br>(Meta: 32 | 100%)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">15</div>
+                    <div class="label">Palestras Realizadas<br>(Meta: 4 | 375%)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">100</div>
+                    <div class="label">Consultorias Especializadas<br>(Meta: 100 | Em andamento)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">100</div>
+                    <div class="label">Planos de Negocios<br>(Meta: 100 | Em desenvolvimento)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="number">2</div>
+                    <div class="label">Feiras de Negocios<br>(Meta: 4 | 50%)</div>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <h4>SINTESE POR ETAPA</h4>
+                <ul class="list-items">
+                    <li><strong>Etapa 1 (Mapeamento):</strong> EM ANDAMENTO - 1.046 questionarios aplicados (104,6%), relatorio final pendente</li>
+                    <li><strong>Etapa 2 (Materiais):</strong> EM ANDAMENTO - Materiais em diagramacao (90%), impressao pendente</li>
+                    <li><strong>Etapa 3 (Liderancas):</strong> EM ANDAMENTO - 639 de 1.000 participantes (63,9%), deficit critico de 361 pessoas</li>
+                    <li><strong>Etapa 4 (Capacitacao):</strong> CONCLUIDA - 100% das oficinas e palestras realizadas</li>
+                    <li><strong>Etapa 5 (Fomento):</strong> EM ANDAMENTO - Diagnosticos superaram meta (174%), consultorias iniciadas, 2 de 4 feiras realizadas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ETAPA 1 -->
+        <div class="stage-block">
+            <div class="stage-header">
+                <div class="stage-number">1</div>
+                <div class="stage-title">IDENTIFICACAO E MAPEAMENTO DE EMPREENDIMENTOS</div>
+                <span class="status-badge status-andamento">EM ANDAMENTO</span>
+            </div>
+            <div class="stage-content">
+                <div class="content-block">
+                    <h3>Descricao da Etapa</h3>
+                    <p><strong>Duracao prevista:</strong> 2 meses</p>
+                    <p style="margin-top: 10px;">Identificacao e mapeamento de pelo menos 1.000 empreendimentos na Favela da Mare e no Jacarezinho, com aplicacao de questionario socioeconomico, registros fotograficos e producao de relatorio sistematizado com analise dos dados coletados.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Comparativo: Meta Planejada vs. Resultado Alcancado</h3>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 45%;">Meta Planejada</th>
+                                <th style="width: 30%;">Resultado Alcancado</th>
+                                <th style="width: 25%;">Percentual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="meta-column">Aplicar 1.000 questionarios (500 por territorio)</td>
+                                <td class="realizado-column">1.046 questionarios aplicados</td>
+                                <td><span class="percent-badge percent-green">104,6%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">Banco de dados estruturado</td>
+                                <td class="realizado-column">DiagnosticoTerritorial.xlsx criado</td>
+                                <td><span class="percent-badge percent-green">100%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">Registros fotograficos e videos</td>
+                                <td class="realizado-column">Fotos coletadas</td>
+                                <td><span class="percent-badge percent-green">100%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">1 Relatorio sistematizado completo</td>
+                                <td class="realizado-column">Em elaboracao</td>
+                                <td><span class="percent-badge percent-yellow">80%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert-box success">
+                    <h4>Resultados Positivos Alcancados</h4>
+                    <ul class="list-items">
+                        <li>Meta de questionarios SUPERADA em 4,6% - total de 46 questionarios adicionais</li>
+                        <li>Banco de dados completo estruturado com perfil de 1.046 empreendedores</li>
+                        <li>Documentacao fotografica realizada em ambos os territorios</li>
+                        <li>Modelo validado: PROSPERA RIO - Questionario Socioeconomico e de Mapeamento de Empreendedores</li>
+                        <li>Dados coletados: perfil do empreendedor (genero, raca, vinculo com PcD), tipo de negocio, setor de atuacao e estagio de maturidade</li>
+                    </ul>
+                </div>
+
+                <div class="alert-box">
+                    <h4>Pendencias para Conclusao Total da Etapa</h4>
+                    <ul class="list-items">
+                        <li>Finalizar analise dos 1.046 questionarios coletados</li>
+                        <li>Produzir relatorio sistematizado com perfil dos negocios, distribuicao geografica e principais desafios</li>
+                        <li>Diagramar e entregar versao final do relatorio tecnico</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>Impacto Social Esperado</h3>
+                    <p>Mapeamento detalhado de empreendimentos perifericos permitindo identificar oportunidades de integracao ao mercado formal, necessidades de apoio e caracteristicas socioeconomicas para direcionar acoes futuras do projeto de forma personalizada.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 2 -->
+        <div class="stage-block">
+            <div class="stage-header">
+                <div class="stage-number">2</div>
+                <div class="stage-title">METODOLOGIA E PRODUCAO DE MATERIAIS PEDAGOGICOS</div>
+                <span class="status-badge status-andamento">EM ANDAMENTO</span>
+            </div>
+            <div class="stage-content">
+                <div class="content-block">
+                    <h3>Descricao da Etapa</h3>
+                    <p><strong>Duracao:</strong> Transversal ao projeto (2 meses)</p>
+                    <p style="margin-top: 10px;">Producao de materiais pedagogicos customizados e inclusivos para pessoas negras, mulheres e pessoas com deficiencia, incluindo guia de acessibilidade, material digital de apoio pedagogico com audiodescricao e impressao de 200 copias fisicas.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Comparativo: Meta Planejada vs. Resultado Alcancado</h3>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 45%;">Meta Planejada</th>
+                                <th style="width: 30%;">Resultado Alcancado</th>
+                                <th style="width: 25%;">Percentual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="meta-column">1 Guia digital de acessibilidade</td>
+                                <td class="realizado-column">Em fase de diagramacao</td>
+                                <td><span class="percent-badge percent-yellow">90%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">1 Material digital de apoio pedagogico</td>
+                                <td class="realizado-column">Em fase de diagramacao</td>
+                                <td><span class="percent-badge percent-yellow">90%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">Adaptacao com audiodescricao</td>
+                                <td class="realizado-column">Em andamento</td>
+                                <td><span class="percent-badge percent-yellow">70%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">200 copias fisicas impressas</td>
+                                <td class="realizado-column">Pendente</td>
+                                <td><span class="percent-badge percent-red">0%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">Link de acesso online</td>
+                                <td class="realizado-column">Pendente</td>
+                                <td><span class="percent-badge percent-red">0%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert-box">
+                    <h4>Progresso Atual</h4>
+                    <ul class="list-items">
+                        <li>Conteudos dos materiais produzidos e revisados</li>
+                        <li>Guia de acessibilidade em fase final de diagramacao (90% concluido)</li>
+                        <li>Material pedagogico em fase final de diagramacao (90% concluido)</li>
+                        <li>Processo de adaptacao com audiodescricao iniciado (70% concluido)</li>
+                        <li>Materiais contextualizados a realidade da Mare e Jacarezinho</li>
+                    </ul>
+                </div>
+
+                <div class="alert-box danger">
+                    <h4>Acoes Necessarias para Conclusao</h4>
+                    <ul class="list-items">
+                        <li>Finalizar diagramacao do guia de acessibilidade (10% restantes)</li>
+                        <li>Finalizar diagramacao do material pedagogico (10% restantes)</li>
+                        <li>Concluir adaptacao com audiodescricao (30% restantes)</li>
+                        <li>Disponibilizar link de acesso online</li>
+                        <li>Providenciar impressao de 200 copias fisicas</li>
+                        <li>Distribuir material aos 100 empreendedores do nucleo duro</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>Impacto Social Esperado</h3>
+                    <p>Disponibilizacao de materiais pedagogicos inclusivos e adaptados que garantam plena participacao de pessoas com deficiencia nas formacoes, promovendo acessibilidade e equidade no acesso ao conhecimento empreendedor.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 3 -->
+        <div class="stage-block">
+            <div class="stage-header">
+                <div class="stage-number">3</div>
+                <div class="stage-title">FORMACAO DE LIDERANCAS EMPREENDEDORAS</div>
+                <span class="status-badge status-andamento">EM ANDAMENTO</span>
+            </div>
+            <div class="stage-content">
+                <div class="content-block">
+                    <h3>Descricao da Etapa</h3>
+                    <p><strong>Duracao prevista:</strong> 1 mes</p>
+                    <p style="margin-top: 10px;">Realizacao de 2 seminarios de formacao (4h/aula cada) para 500 empreendedores em cada territorio, totalizando 16h/aula oferecidas e 1.000 pessoas atendidas.</p>
+                    <p style="margin-top: 10px;"><strong>Temas dos Seminarios:</strong></p>
+                    <ul class="list-items" style="margin-top: 10px;">
+                        <li>Seminario 1: "O Papel das Liderancas no Desenvolvimento Territorial"</li>
+                        <li>Seminario 2: "Criando um Ecossistema de Negocios em Areas Populares"</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>Comparativo: Meta Planejada vs. Resultado Alcancado</h3>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 45%;">Meta Planejada</th>
+                                <th style="width: 30%;">Resultado Alcancado</th>
+                                <th style="width: 25%;">Percentual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="meta-column">1.000 participantes (ambos territorios)</td>
+                                <td class="realizado-column">639 participantes</td>
+                                <td><span class="percent-badge percent-yellow">63,9%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">500 participantes na Mare</td>
+                                <td class="realizado-column">203 participantes</td>
+                                <td><span class="percent-badge percent-red">40,6%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">500 participantes no Jacarezinho</td>
+                                <td class="realizado-column">436 participantes</td>
+                                <td><span class="percent-badge percent-yellow">87,2%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">2 seminarios na Mare (8h/aula)</td>
+                                <td class="realizado-column">Parcialmente realizado</td>
+                                <td><span class="percent-badge percent-yellow">Em execucao</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">2 seminarios no Jacarezinho (8h/aula)</td>
+                                <td class="realizado-column">Parcialmente realizado</td>
+                                <td><span class="percent-badge percent-yellow">Em execucao</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="territorio-box">
+                    <h4>JACAREZINHO: 436 participantes (87,2% da meta de 500)</h4>
+                    <table class="event-table">
+                        <thead>
+                            <tr>
+                                <th>Local/Evento</th>
+                                <th>Data</th>
+                                <th style="text-align: center;">Participantes</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Virginia Patrick</td>
+                                <td>18/08/2025</td>
+                                <td class="realizado-column" style="text-align: center;">70</td>
+                                <td>Concluido</td>
+                            </tr>
+                            <tr>
+                                <td>CE Luis Carlos</td>
+                                <td>28/08/2025</td>
+                                <td class="realizado-column" style="text-align: center;">83</td>
+                                <td>Concluido</td>
+                            </tr>
+                            <tr>
+                                <td>CRJ</td>
+                                <td>02/09/2025</td>
+                                <td class="realizado-column" style="text-align: center;">37</td>
+                                <td>Concluido</td>
+                            </tr>
+                            <tr>
+                                <td>EJA CE Luis Carlos</td>
+                                <td>03/09/2025</td>
+                                <td class="realizado-column" style="text-align: center;">43</td>
+                                <td>Concluido</td>
+                            </tr>
+                            <tr>
+                                <td>Seminario 1 - CASA</td>
+                                <td>10/09/2025</td>
+                                <td class="realizado-column" style="text-align: center;">13</td>
+                                <td>Concluido</td>
+                            </tr>
+                            <tr>
+                                <td>Seminario 2 - CASA</td>
+                                <td>18/09/2025</td>
+                                <td class="realizado-column" style="text-align: center;">N/D</td>
+                                <td>Concluido</td>
+                            </tr>
+                            <tr>
+                                <td>Pernambuco</td>
+                                <td>22/09/2025</td>
+                                <td class="realizado-column" style="text-align: center;">-</td>
+                                <td>Previsto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="alert-box">
+                        <h4>Pendencias - Jacarezinho</h4>
+                        <ul class="list-items">
+                            <li>Deficit: 64 participantes para atingir meta de 500 (12,8%)</li>
+                            <li>Coletar 26 CPF faltantes nos eventos ja realizados</li>
+                            <li>Devolver 53 fichas pendentes (evento Virginia Patrick)</li>
+                            <li>Realizar evento pendente em Pernambuco</li>
+                            <li>Consolidar dados do Seminario 2 - CASA</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="territorio-box">
+                    <h4>MARE: 203 participantes (40,6% da meta de 500)</h4>
+                    <table class="event-table">
+                        <thead>
+                            <tr>
+                                <th>Local/Evento</th>
+                                <th>Data</th>
+                                <th style="text-align: center;">Participantes</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>EE Joao Borges</td>
+                                <td>27/08/2025</td>
+                                <td class="realizado-column" style="text-align: center;">203</td>
+                                <td>Concluido</td>
+                            </tr>
+                            <tr>
+                                <td>Bahia</td>
+                                <td>A definir</td>
+                                <td class="realizado-column" style="text-align: center;">-</td>
+                                <td>Pendente</td>
+                            </tr>
+                            <tr>
+                                <td>Cesar Perneta</td>
+                                <td>A definir</td>
+                                <td class="realizado-column" style="text-align: center;">-</td>
+                                <td>Pendente</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="alert-box danger">
+                        <h4>Pendencias CRITICAS - Mare</h4>
+                        <ul class="list-items">
+                            <li>Deficit CRITICO: 297 participantes para atingir meta de 500 (59,4%)</li>
+                            <li>Realizar evento pendente: Bahia</li>
+                            <li>Realizar evento pendente: Cesar Perneta</li>
+                            <li>Realizar registro audiovisual dos eventos</li>
+                            <li>Planejar eventos adicionais para completar meta de 500 participantes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert-box danger">
+                    <h4>CONSOLIDADO ETAPA 3 - DEFICIT GERAL</h4>
+                    <ul class="list-items">
+                        <li><strong>Total geral de deficit:</strong> 361 participantes para atingir meta de 1.000</li>
+                        <li><strong>Mare:</strong> 297 participantes faltantes (deficit de 59,4%)</li>
+                        <li><strong>Jacarezinho:</strong> 64 participantes faltantes (deficit de 12,8%)</li>
+                        <li><strong>Acao necessaria:</strong> Intensificar eventos na Mare para equilibrar participacao entre territorios</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>Impacto Social Esperado</h3>
+                    <p>Formacao de liderancas empreendedoras capazes de desenvolver praticas de gestao de negocios, estrategias de lideranca territorial e autonomia economica, com foco especial no desenvolvimento de habilidades para autossustentabilidade dos empreendimentos locais.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 4 -->
+        <div class="stage-block">
+            <div class="stage-header">
+                <div class="stage-number">4</div>
+                <div class="stage-title">CAPACITACAO TECNICA PARA EMPREENDEDORES</div>
+                <span class="status-badge status-concluida">CONCLUIDA</span>
+            </div>
+            <div class="stage-content">
+                <div class="content-block">
+                    <h3>Descricao da Etapa</h3>
+                    <p><strong>Duracao:</strong> 4 meses</p>
+                    <p style="margin-top: 10px;">Realizacao de oficinas de capacitacao tecnica em gestao de negocios (16 oficinas por territorio, 2h/aula cada) e palestras voltadas ao desenvolvimento de parcerias comunitarias (2 palestras por territorio, 2h/aula cada), totalizando 64h/aula ofertadas e 100 pessoas atendidas.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>Comparativo: Meta Planejada vs. Resultado Alcancado</h3>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 45%;">Meta Planejada</th>
+                                <th style="width: 30%;">Resultado Alcancado</th>
+                                <th style="width: 25%;">Percentual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="meta-column">32 oficinas tecnicas (16 por territorio)</td>
+                                <td class="realizado-column">32 oficinas realizadas</td>
+                                <td><span class="percent-badge percent-green">100%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">64h/aula ofertadas (32h por territorio)</td>
+                                <td class="realizado-column">64h/aula realizadas</td>
+                                <td><span class="percent-badge percent-green">100%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">100 pessoas atendidas (50 por territorio)</td>
+                                <td class="realizado-column">Numero em consolidacao</td>
+                                <td><span class="percent-badge percent-green">Concluido</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">4 palestras (2 por territorio)</td>
+                                <td class="realizado-column">15 palestras realizadas</td>
+                                <td><span class="percent-badge percent-green">375%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="territorio-box">
+                    <h4>JACAREZINHO - 16 Oficinas + 9 Palestras</h4>
+                    <p style="margin-bottom: 10px;"><strong>Oficinas Tecnicas Realizadas:</strong></p>
+                    <table class="event-table">
+                        <tbody>
+                            <tr>
+                                <td>05/02 - Financas Pessoais</td>
+                                <td class="realizado-column">11 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>07/02 - Inovacao</td>
+                                <td class="realizado-column">2 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>12/02 - Do sonho a realidade</td>
+                                <td class="realizado-column">4 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>24/02 - Como criar artes para o seu negocio</td>
+                                <td class="realizado-column">8 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>16/04 - Como usar redes sociais para lucrar</td>
+                                <td class="realizado-column">14 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>03/06 - Precificacao e vendas</td>
+                                <td class="realizado-column">6 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>10/06 - Precificacao e vendas</td>
+                                <td class="realizado-column">5 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>11/06 - Plano de Negocio</td>
+                                <td class="realizado-column">5 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>18/06 - Plano de Negocio</td>
+                                <td class="realizado-column">5 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>16/06 - Marketing Digital</td>
+                                <td class="realizado-column">7 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>18/06 - Marketing Digital</td>
+                                <td class="realizado-column">7 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>30/06 - Marketing digital</td>
+                                <td class="realizado-column">5 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>24/06 - Financas Descomplicadas</td>
+                                <td class="realizado-column">4 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>26/06 - Financas Descomplicadas</td>
+                                <td class="realizado-column">5 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>08/07 - Identidade de Marca</td>
+                                <td class="realizado-column">4 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>15/07 - Identidade de Marca</td>
+                                <td class="realizado-column">4 participantes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p style="margin: 15px 0 10px 0;"><strong>Palestras Realizadas (META: 2 | REALIZADO: 9):</strong></p>
+                    <table class="event-table">
+                        <tbody>
+                            <tr>
+                                <td>28/04 - Abril Azul</td>
+                                <td class="realizado-column">11 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>31/05 - Maes Empreendedoras</td>
+                                <td class="realizado-column">4 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>11/07 - Microcredito</td>
+                                <td class="realizado-column">10 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>18/08 - Fala que vende 1</td>
+                                <td class="realizado-column">6 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>28/08 - Fala que vende 2</td>
+                                <td class="realizado-column">2 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>02/09 - Fala que vende 3</td>
+                                <td class="realizado-column">3 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>15/09 - Montando sua loja online</td>
+                                <td class="realizado-column">13 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>22/09 - Controle de Estoque</td>
+                                <td class="realizado-column">5 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>28/06 - Acao Social</td>
+                                <td class="realizado-column">Realizada</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="territorio-box">
+                    <h4>MARE - 16 Oficinas + 6 Palestras</h4>
+                    <p style="margin-bottom: 10px;"><strong>Oficinas Tecnicas Realizadas:</strong></p>
+                    <table class="event-table">
+                        <tbody>
+                            <tr>
+                                <td>09/05 - Descomplicando seu negocio</td>
+                                <td class="realizado-column">10 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>16/05 - Descomplicando seu negocio</td>
+                                <td class="realizado-column">5 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>29/05 - Lucro Rapido</td>
+                                <td class="realizado-column">11 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>03/06 - Lucro Escondido</td>
+                                <td class="realizado-column">9 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>01/07 - Precificacao</td>
+                                <td class="realizado-column">6 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>08/07 - Precificacao</td>
+                                <td class="realizado-column">9 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>15/07 - Precificacao</td>
+                                <td class="realizado-column">5 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>17/07 - Modelo de Negocio</td>
+                                <td class="realizado-column">4 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>18/07 - Marketing Digital</td>
+                                <td class="realizado-column">3 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>21/07 - Modelo de Negocio</td>
+                                <td class="realizado-column">2 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>22/07 - Financas Descomplicadas</td>
+                                <td class="realizado-column">5 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>24/07 - Financas Descomplicadas</td>
+                                <td class="realizado-column">7 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>31/07 - Identidade De Marca</td>
+                                <td class="realizado-column">6 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>01/08 - Marketing Digital</td>
+                                <td class="realizado-column">3 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>07/08 - Identidade De Marca</td>
+                                <td class="realizado-column">6 participantes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p style="margin: 15px 0 10px 0;"><strong>Palestras Realizadas (META: 2 | REALIZADO: 6):</strong></p>
+                    <table class="event-table">
+                        <tbody>
+                            <tr>
+                                <td>05/08 - Fala que vende</td>
+                                <td class="realizado-column">9 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>21/08 - Fluxo de Caixa</td>
+                                <td class="realizado-column">5 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>01/09 - Cafe com Empreendedor</td>
+                                <td class="realizado-column">20 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>04/09 - Whatsapp Business com ChatGPT 1.0</td>
+                                <td class="realizado-column">9 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>11/09 - Whatsapp Business com ChatGPT 2.0</td>
+                                <td class="realizado-column">6 participantes</td>
+                            </tr>
+                            <tr>
+                                <td>18/09 - Controle de Estoque</td>
+                                <td class="realizado-column">3 participantes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert-box success">
+                    <h4>Etapa 4 - CONCLUIDA COM SUCESSO</h4>
+                    <ul class="list-items">
+                        <li>32 oficinas tecnicas realizadas conforme planejado (100% da meta)</li>
+                        <li>64 horas/aula ofertadas em ambos os territorios</li>
+                        <li>15 palestras realizadas (META: 4 | 375% de superacao)</li>
+                        <li>Temas abordados: gestao financeira, marketing digital, precificacao, vendas, modelo de negocios, identidade de marca</li>
+                        <li>Parcerias comunitarias desenvolvidas atraves das palestras tematicas</li>
+                        <li>Uso de tecnologias assistivas e metodologias inclusivas em todas as formacoes</li>
+                    </ul>
+                </div>
+
+                <div class="alert-box">
+                    <h4>Pendencias Administrativas</h4>
+                    <ul class="list-items">
+                        <li>Faltam listas de presenca completas das palestras de 15/09 e 22/09 (Jacarezinho)</li>
+                        <li>Consolidar numero total exato de participantes unicos da etapa</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>Impacto Social Esperado</h3>
+                    <p>Capacitacao tecnica pratica em gestao de negocios permitindo aos empreendedores implementar melhorias imediatas em seus empreendimentos, com foco em formalizacao, precificacao adequada, estrategias de vendas e uso de tecnologias digitais para expansao de mercado.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 5 -->
+        <div class="stage-block">
+            <div class="stage-header">
+                <div class="stage-number">5</div>
+                <div class="stage-title">FOMENTO AO DESENVOLVIMENTO DE NEGOCIOS LOCAIS</div>
+                <span class="status-badge status-andamento">EM ANDAMENTO</span>
+            </div>
+            <div class="stage-content">
+                <div class="content-block">
+                    <h3>Descricao da Etapa</h3>
+                    <p>Esta etapa consiste no acompanhamento intensivo de 50 empreendedores por territorio (nucleo duro), totalizando 100 negocios. Inclui: diagnostico empresarial, producao de relatorios individuais, consultorias semanais de 1h durante 3 meses e realizacao de 2 feiras de negocios em cada territorio.</p>
+                </div>
+
+                <div class="content-block">
+                    <h3>ACAO 7: Diagnosticos Empresariais</h3>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 45%;">Meta Planejada</th>
+                                <th style="width: 30%;">Resultado Alcancado</th>
+                                <th style="width: 25%;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="meta-column">100 diagnosticos (50 por territorio)</td>
+                                <td class="realizado-column">174 diagnosticos</td>
+                                <td><span class="percent-badge percent-green">174%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">50 diagnosticos no Jacarezinho</td>
+                                <td class="realizado-column">89 diagnosticos</td>
+                                <td><span class="percent-badge percent-green">178%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">50 diagnosticos na Mare</td>
+                                <td class="realizado-column">85 diagnosticos</td>
+                                <td><span class="percent-badge percent-green">170%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">100 relatorios individuais</td>
+                                <td class="realizado-column">170 relatorios produzidos</td>
+                                <td><span class="percent-badge percent-green">170%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">87 relatorios no Jacarezinho</td>
+                                <td class="realizado-column">87 relatorios</td>
+                                <td><span class="percent-badge percent-green">100%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">83 relatorios na Mare</td>
+                                <td class="realizado-column">83 relatorios</td>
+                                <td><span class="percent-badge percent-green">100%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">2 relatorios consolidados (1 por territorio)</td>
+                                <td class="realizado-column">2 relatorios consolidados</td>
+                                <td><span class="percent-badge percent-green">100%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert-box success">
+                    <h4>Diagnosticos Empresariais - META SUPERADA</h4>
+                    <ul class="list-items">
+                        <li>Meta de 100 diagnosticos SUPERADA em 74% (74 diagnosticos adicionais)</li>
+                        <li>Jacarezinho: 89 diagnosticos realizados (78% acima da meta)</li>
+                        <li>Mare: 85 diagnosticos realizados (70% acima da meta)</li>
+                        <li>170 relatorios individuais produzidos com analise detalhada</li>
+                        <li>2 relatorios consolidados por territorio finalizados</li>
+                        <li>Modelo aplicado: Questionario Diagnostico Empresarial Simplificado</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>ACAO 8: Consultorias Especializadas</h3>
+                    <p style="margin-bottom: 15px;">Consultoria especializada para os 50 empreendedores do nucleo duro de cada territorio, ao longo de 3 meses. Ao final das consultorias, cada empreendedor tera um plano de negocios estruturado.</p>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 45%;">Meta Planejada</th>
+                                <th style="width: 30%;">Resultado Alcancado</th>
+                                <th style="width: 25%;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="meta-column">Consultorias semanais de 1h durante 3 meses</td>
+                                <td class="realizado-column">Em execucao</td>
+                                <td><span class="percent-badge percent-yellow">Em andamento</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">100 empreendedores atendidos (50 por territorio)</td>
+                                <td class="realizado-column">Em atendimento</td>
+                                <td><span class="percent-badge percent-yellow">Em andamento</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">12 encontros por empreendedor</td>
+                                <td class="realizado-column">Iniciado em 16/06/2025 (Mare)</td>
+                                <td><span class="percent-badge percent-yellow">Em andamento</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">100 planos de negocio estruturados</td>
+                                <td class="realizado-column">Em desenvolvimento</td>
+                                <td><span class="percent-badge percent-yellow">Em andamento</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="alert-box">
+                    <h4>Consultorias - Status Atual</h4>
+                    <ul class="list-items">
+                        <li>Consultorias iniciadas em junho/2025 na Mare</li>
+                        <li>Processo em andamento para nucleo duro de ambos os territorios</li>
+                        <li>10 primeiros encontros realizados em espaco alugado pelo projeto</li>
+                        <li>2 encontros finais realizados no espaco do negocio do empreendedor</li>
+                        <li>Estrategia visa oferecer orientacoes de maneira acessivel e conveniente</li>
+                        <li>Empresa especializada contratada para realizacao das consultorias</li>
+                    </ul>
+                </div>
+
+                <div class="alert-box">
+                    <h4>Pendencias - Consultorias</h4>
+                    <ul class="list-items">
+                        <li>Consolidacao de relatorios semanais de atendimento</li>
+                        <li>Documentacao fotografica de todas as 12 semanas</li>
+                        <li>Finalizacao dos planos de negocio estruturados</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>ACAO 9: Feiras de Negocios e Networking</h3>
+                    <p style="margin-bottom: 15px;">Realizacao de 4 feiras de negocios com a participacao, ao todo, de 100 empreendedores atendidos pelo nucleo duro do projeto, garantindo a representacao de uma ampla variedade de setores empresariais e temas relevantes.</p>
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 45%;">Meta Planejada</th>
+                                <th style="width: 30%;">Resultado Alcancado</th>
+                                <th style="width: 25%;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="meta-column">4 feiras de negocios (2 por territorio)</td>
+                                <td class="realizado-column">2 feiras realizadas</td>
+                                <td><span class="percent-badge percent-yellow">50%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">2 feiras no Jacarezinho</td>
+                                <td class="realizado-column">2 feiras (27 e 28/09)</td>
+                                <td><span class="percent-badge percent-green">100%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">2 feiras na Mare</td>
+                                <td class="realizado-column">0 feiras</td>
+                                <td><span class="percent-badge percent-red">0%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">100 empreendedores participantes (total)</td>
+                                <td class="realizado-column">33 empreendedores</td>
+                                <td><span class="percent-badge percent-yellow">33%</span></td>
+                            </tr>
+                            <tr>
+                                <td class="meta-column">Duracao de 4 horas cada feira</td>
+                                <td class="realizado-column">2 feiras realizadas</td>
+                                <td><span class="percent-badge percent-green">Concluido</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="territorio-box">
+                    <h4>JACAREZINHO - Feiras de Negocios Realizadas</h4>
+                    <p style="margin-bottom: 15px;"><strong>Data:</strong> 27 e 28 de Setembro de 2025 (2 feiras em dias consecutivos)</p>
+                    <p style="margin-bottom: 15px;"><strong>Participantes:</strong> 33 empreendedores</p>
+                    <p style="margin-bottom: 15px;"><strong>Status:</strong> META CONCLUIDA - 100% das feiras do territorio realizadas</p>
+                    <p style="margin-bottom: 15px;"><strong>Documentacao:</strong></p>
+                    <ul class="list-items">
+                        <li>Plano de realizacao dos eventos finalizado</li>
+                        <li>Edital de inscricao de empreendedores publicado (04/09/2025)</li>
+                        <li>Materiais de divulgacao produzidos</li>
+                        <li>Listas de presenca coletadas</li>
+                        <li>Cobertura fotografica realizada</li>
+                        <li>Interpretes de Libras contratados para acessibilidade</li>
+                        <li>Feira 1 (27/09): Realizada com sucesso</li>
+                        <li>Feira 2 (28/09): Realizada com sucesso</li>
+                    </ul>
+                </div>
+
+                <div class="territorio-box">
+                    <h4>MARE - Feiras de Negocios Pendentes</h4>
+                    <div class="alert-box danger">
+                        <h4>Situacao Critica - Feiras na Mare</h4>
+                        <ul class="list-items">
+                            <li>META NAO INICIADA: Nenhuma feira realizada na Mare</li>
+                            <li>Deficit: 2 feiras de negocios (100% da meta do territorio)</li>
+                            <li>Plano de realizacao dos eventos: Pendente</li>
+                            <li>Materiais de divulgacao: Pendente</li>
+                            <li>Acao urgente necessaria: Planejar e executar 2 feiras na Mare</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert-box danger">
+                    <h4>CONSOLIDADO ACAO 9 - DEFICIT GERAL FEIRAS</h4>
+                    <ul class="list-items">
+                        <li><strong>Total de feiras realizadas:</strong> 2 de 4 (50% da meta)</li>
+                        <li><strong>Jacarezinho:</strong> 2 feiras realizadas - META 100% CONCLUIDA</li>
+                        <li><strong>Mare:</strong> 0 feiras realizadas, faltando 2 (0% da meta do territorio)</li>
+                        <li><strong>Empreendedores participantes:</strong> 33 de 100 (33% da meta)</li>
+                        <li><strong>Deficit de participacao:</strong> 67 empreendedores</li>
+                        <li><strong>Acao necessaria:</strong> Realizar 2 feiras na Mare para completar meta do projeto</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h3>Impacto Social Esperado da Etapa 5</h3>
+                    <p>Fortalecimento dos empreendimentos locais atraves de diagnostico profundo, acompanhamento individualizado e acesso a mercado. As feiras de negocios proporcionam networking, visibilidade comercial e oportunidades de vendas diretas, integrando os empreendedores perifericos a cadeias produtivas formais e ampliando suas redes de contatos comerciais.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANALISE FINAL E RECOMENDACOES -->
+        <div class="final-summary">
+            <h2>ANALISE CONSOLIDADA E RECOMENDACOES</h2>
+            
+            <div class="highlight-box">
+                <h4>PONTOS FORTES DO PROJETO</h4>
+                <ul class="list-items">
+                    <li><strong>Etapa 1:</strong> Meta de mapeamento superada em 4,6% (1.046 questionarios aplicados)</li>
+                    <li><strong>Etapa 4:</strong> 100% das oficinas concluidas e 375% de superacao nas palestras (15 realizadas contra meta de 4)</li>
+                    <li><strong>Etapa 5:</strong> Diagnosticos empresariais superaram meta em 74% (174 realizados contra meta de 100)</li>
+                    <li><strong>Cobertura territorial:</strong> Atuacao efetiva em ambos os territorios (Mare e Jacarezinho)</li>
+                    <li><strong>Metodologia inclusiva:</strong> Materiais adaptados e uso de tecnologias assistivas</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>DESAFIOS E AREAS DE ATENCAO</h4>
+                <ul class="list-items">
+                    <li><strong>Etapa 3 - Deficit critico:</strong> 361 participantes faltantes nos seminarios de formacao (63,9% da meta alcancada)</li>
+                    <li><strong>Mare - Desequilibrio territorial:</strong> Apenas 40,6% da meta atingida nos seminarios (203 de 500 participantes)</li>
+                    <li><strong>Etapa 2 - Materiais pendentes:</strong> Impressao de 200 copias fisicas e link online ainda nao disponiveis</li>
+                    <li><strong>Etapa 5 - Feiras de negocios:</strong> Apenas 25% da meta realizada (1 de 4 feiras)</li>
+                    <li><strong>Documentacao incompleta:</strong> Fichas de presenca, CPFs e dados pendentes em varios eventos</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>RECOMENDACOES PRIORITARIAS</h4>
+                <ul class="list-items">
+                    <li><strong>Curto prazo (30 dias):</strong> Intensificar eventos na Mare para equilibrar participacao nos seminarios de formacao</li>
+                    <li><strong>Curto prazo (30 dias):</strong> Finalizar impressao e distribuicao dos materiais pedagogicos</li>
+                    <li><strong>Medio prazo (60 dias):</strong> Realizar 2 feiras de negocios na Mare para completar meta do projeto</li>
+                    <li><strong>Medio prazo (60 dias):</strong> Finalizar relatorio consolidado do mapeamento territorial (Etapa 1)</li>
+                    <li><strong>Continuo:</strong> Regularizar documentacao pendente (fichas, CPFs, fotos) de todos os eventos</li>
+                    <li><strong>Continuo:</strong> Consolidar relatorios semanais das consultorias especializadas</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>INDICADORES DE IMPACTO SOCIAL ALCANCADOS</h4>
+                <ul class="list-items">
+                    <li><strong>Alcance direto:</strong> 1.046 empreendimentos mapeados nos territorios perifericos</li>
+                    <li><strong>Formacao ampla:</strong> 639 empreendedores participaram de seminarios de lideranca</li>
+                    <li><strong>Capacitacao tecnica:</strong> 100+ empreendedores capacitados em 32 oficinas tecnicas</li>
+                    <li><strong>Acompanhamento intensivo:</strong> 174 empreendimentos receberam diagnostico empresarial</li>
+                    <li><strong>Consultorias individualizadas:</strong> 100 empreendedores em processo de consultoria (3 meses)</li>
+                    <li><strong>Acesso a mercado:</strong> 33 empreendedores participaram da primeira feira de negocios</li>
+                    <li><strong>Inclusao e acessibilidade:</strong> Metodologias inclusivas beneficiando pessoas negras, mulheres e PcD</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>PROJECAO DE IMPACTO FINAL</h4>
+                <p style="margin-bottom: 15px;">Com a conclusao das acoes pendentes, o Projeto Prospera Rio tera potencial de impactar:</p>
+                <ul class="list-items">
+                    <li><strong>1.000+ empreendedores</strong> com formacao em lideranca e empreendedorismo</li>
+                    <li><strong>100 negocios estruturados</strong> com plano de negocios e acompanhamento individualizado</li>
+                    <li><strong>100 empreendedores</strong> com acesso ampliado a mercado atraves de 4 feiras de negocios</li>
+                    <li><strong>Geracao de renda</strong> em territorios de alta vulnerabilidade social</li>
+                    <li><strong>Inclusao produtiva</strong> de pessoas negras, mulheres e familias de PcD</li>
+                    <li><strong>Desenvolvimento territorial</strong> sustentavel na Mare e Jacarezinho</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>CONSIDERACOES FINAIS</h4>
+                <p style="margin-bottom: 15px;">O Projeto Prospera Rio demonstra resultados significativos na inclusao produtiva e geracao de renda em territorios perifericos. A superacao de metas em etapas estrategicas (mapeamento, diagnosticos, capacitacao tecnica) evidencia a efetividade da metodologia adotada.</p>
+                <p style="margin-bottom: 15px;">Os desafios identificados, especialmente na Etapa 3 (formacao de liderancas) e Etapa 5 (feiras de negocios), requerem acoes corretivas imediatas para garantir o cumprimento integral dos objetivos do projeto.</p>
+                <p style="margin-bottom: 15px;">A execucao das recomendacoes prioritarias nos proximos 60 dias sera determinante para maximizar o impacto social do projeto e garantir a sustentabilidade dos resultados alcancados ate o momento.</p>
+                <p style="margin-top: 20px; font-weight: 600;">Este relatorio consolida os dados disponiveis em Outubro de 2025 e demonstra o compromisso com a transparencia e a qualidade na execucao do convenio SEBRAE/RJ e Instituto BR Art.</p>
+            </div>
+        </div>
+
+        <!-- RODAPE -->
+        <div style="background: #092040; color: #FFFFFF; padding: 30px; border-radius: 12px; margin-top: 30px; text-align: center;">
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">PROSPERA RIO - MARE E JACAREZINHO</p>
+            <p style="font-size: 14px; opacity: 0.9;">Relatorio de Impacto Final | Outubro 2025</p>
+            <p style="font-size: 13px; opacity: 0.8; margin-top: 15px;">Documento produzido pelo Instituto BR Art para o SEBRAE/RJ</p>
+            <p style="font-size: 13px; opacity: 0.8; margin-top: 5px;">Projeto de Inclusao Produtiva e Geracao de Renda em Territorios Perifericos</p>
+        </div>
+
+    </div>
+</body>
+</html>
